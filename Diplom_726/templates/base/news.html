@@ -1,0 +1,39 @@
+{% extends 'base/menu.html' %}
+
+{% block title %}
+             {{ block.super }}
+{% endblock %}
+
+{% block pagename %}
+            {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    {% for news in page_news %}
+        <h3>{{ news.title }}</h3>
+        <br>
+        {{ news.content }}
+        <br>
+        <small style="float: right; margin-right: 20px;">{{ news.date }}</small>
+    <hr>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_news.has_previous %}
+                <a href="?page=1">&laquo; Первая</a>
+                <a href="?page={{ page_news.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_news.number }} из {{ page_news.paginator.num_pages }}.
+            </span>
+
+            {% if page_news.has_next %}
+                <a href="?page={{ page_news.next_page_number }}">Следующая</a>
+                <a href="?page={{ page_news.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}

@@ -1,0 +1,45 @@
+<!-- подключаем шаблон страницы -->
+{% extends 'base/menu.html' %}
+
+<!-- Блок заглавия интернет страницы -->
+{% block title %}
+             {{ block.super }}
+{% endblock %}
+
+{% block pagename %}
+            {{ block.super }}
+{% endblock %}
+
+{% block menu %}
+                    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <p><label for="username">Ваше имя:</label>
+        <input type="text" id="username" name="username" maxlength="30" required></p>
+
+        <p><label for="password">Введите пароль:</label>
+        <input type="password" id="password" name="password" minlength="8" required></p>
+
+        <p><label for="repeat_password">Повторите пароль:</label>
+        <input type="password" id="repeat_password" name="repeat_password" minlength="8" required></p>
+
+        <p><label for="age">Введите свой возраст:</label>
+        <input type="number" id="age" name="age" min="1" maxlength="3" required></p>
+
+
+        <button type="submit">Зарегистрироваться</button>
+
+        <p><strong>{{error}}</strong></p>
+    </form>
+
+
+    <footer>
+
+
+    </footer>
+
+{% endblock %}

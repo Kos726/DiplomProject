@@ -1,0 +1,31 @@
+body {
+background-color:#F08080;
+text-color:#FFE4E1;
+}
+
+h1 {
+text-align: center;
+text-color:#000000;
+background:#FF0000;
+}
+
+h2 {
+height:100px;
+width:100px;
+}
+
+
+button {
+border-color:#CD5C5C;
+background:#FF0000;
+}
+
+.box{
+  background-color: #38d9a9;
+  width: 250px;
+}
+
+p {
+  padding-left: 40px;
+  padding-top: 40px;
+}

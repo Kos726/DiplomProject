@@ -1,0 +1,37 @@
+{% extends 'base/menu.html' %}
+
+{% block title %}
+             {{ block.super }}
+{% endblock %}
+
+{% block pagename %}
+            {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <table BORDER=1 WIDTH=95% BGCOLOR="white" CELLPADDING=10 ALIGN=center>
+        <tr>
+            {% for method in methods %}
+            <th WIDTH=5%>
+                <font size="6">{{ method.name }}</font>
+            </th>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for method in methods %}
+            <td VALIGN=top>
+            {{ method.description }}
+            </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% for method in methods %}
+            <td VALIGN=bottom>
+                <a href="{{ method.resource }}">{{ method.resource }}</a>
+            </td>
+            {% endfor %}
+        </tr>
+    </table>
+
+{% endblock %}

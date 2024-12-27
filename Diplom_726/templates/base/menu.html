@@ -1,0 +1,91 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+        <title>
+            {% block title %}
+                                {{title}}
+            {% endblock %}
+        </title>
+    <link rel = "stylesheet" type = "text/css" href = '{% static "style.css"%}'>
+
+    <style>
+
+
+    p {
+        margin: 50px;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-size: 14pt; /* Размер шрифта в пунктах */
+    }
+    </style>
+
+</head>
+<body>
+        <header>
+            {% block pagename %}
+            <table><thead>
+                <tr>
+                    <th WIDTH=10%>
+                        <img src = '{% static "img/UrbanStile3.png" %}' alt="logo">
+                    </th>
+
+                    <th WIDTH=80% BGCOLOR=#FF0000>
+                        <h1><font color="#FFFAFA">
+                                {{ title }}<!-- place for name of page -->
+                        </font></h1>
+                    </th>
+                </tr>
+            </thead>
+
+            </table>
+            <table BORDER=1 CELLPADDING=10 ALIGN=center><thead>
+                <tr>
+                    <th WIDTH=5%>
+                    <a href="/">
+                        <font size="5">Главная</font>
+                    </a></th>
+
+                    <th WIDTH=5%>
+                    <a href="/objective">
+                        <font size="5">Общая информация</font>
+                    </a></th>
+
+                    <th WIDTH=5%>
+                    <a href="/lib_methods">
+                        <font size="5">Библиотека программ ML</font>
+                    </a></th>
+
+                    <th WIDTH=5%>
+                    <a href="/lib_dataset">
+                        <font size="5">Библиотека датасетов</font>
+                    </a></th>
+
+                </tr>
+                <tr>
+                    <th WIDTH=5% COLSPAN=5>
+                    <a href="/results">
+                        <font size="5">Техническое сравнение библиотек и рекомендации</font>
+                    </a></th>
+                </tr>
+            </thead></table>
+            {% endblock %}
+        </header>
+
+        <main>
+            {% block content %}
+
+
+            {% endblock %}
+        </main>
+
+        <footer>
+            {% block footer %}
+                            <!-- place for content of page -->
+            {% endblock %}
+        </footer>
+
+</body>
+</html>

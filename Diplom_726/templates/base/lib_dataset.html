@@ -1,0 +1,39 @@
+{% extends 'base/menu.html' %}
+
+{% block title %}
+             {{ block.super }}
+{% endblock %}
+
+{% block pagename %}
+            {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <hr>
+    {% for dataset in page_datasets %}
+        <h3>{{ dataset.title }}</h3>
+        <br>
+        {{ dataset.content }}
+        <br>
+        <small style="float: right; margin-right: 20px;">{{ dataset.date }}</small>
+    <hr>
+    {% endfor %}
+
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_datasets.has_previous %}
+                <a href="?page=1">&laquo; Первая</a>
+                <a href="?page={{ page_datasets.previous_page_number }}">Предыдущая</a>
+            {% endif %}
+
+            <span class="current">
+                Страница {{ page_datasets.number }} из {{ page_datasets.paginator.num_pages }}.
+            </span>
+
+            {% if page_datasets.has_next %}
+                <a href="?page={{ page_datasets.next_page_number }}">Следующая</a>
+                <a href="?page={{ page_datasets.paginator.num_pages }}">Последняя &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+{% endblock %}
